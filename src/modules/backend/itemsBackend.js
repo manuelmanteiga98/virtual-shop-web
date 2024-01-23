@@ -225,6 +225,10 @@ const getCategories = async (categoryCallback) => {
     // Get categories
     const q = query(categoriesRef);
     const querySnapshot = await getDocs(q);
+    if (querySnapshot.empty) {
+      await addDoc(q, { name: "Generic" });
+      categoryCallback("Generic");
+    }
     querySnapshot.forEach((category) => categoryCallback(category.get("name")));
   } catch {
     alert("Auth error");

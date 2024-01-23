@@ -7,20 +7,20 @@ import { Provider } from "react-redux";
 import itemsReducer from "./store/itemsSlice";
 import authReducer from "./store/authSlice";
 import salesReducer from "./store/salesSlice";
+import ordersReducer from "./store/ordersSlice";
 
 var store = configureStore({
   reducer: {
     items: itemsReducer,
     auth: authReducer,
     sales: salesReducer,
+    orders: ordersReducer,
   },
 });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>
+  <Provider store={store}>
+    <App />
+  </Provider>
 );

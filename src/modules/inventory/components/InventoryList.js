@@ -19,9 +19,11 @@ function InventoryList() {
   }
   if (empty || filteredList.length === 0) {
     return (
-      <div>
+      <div className="h-100">
         <InventoryListBar />
-        <div className="items-no-items">No items to display</div>
+        <div className="d-flex fs-1 h-100 justify-content-center align-items-center">
+          No items to display yet
+        </div>
       </div>
     );
   }

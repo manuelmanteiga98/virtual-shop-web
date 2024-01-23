@@ -1,4 +1,5 @@
-import { auth, db } from "../../config/firebaseConfig";
+import { getDownloadURL, ref } from "firebase/storage";
+import { auth, db, storage } from "../../config/firebaseConfig";
 
 let initialized = false;
 
@@ -15,7 +16,6 @@ const getSalesFromFirestore = async (saleCallback) => {
   let userRef = db.collection("users").doc(email);
   let salesRef = userRef.collection("sales");
   await salesRef.get().then((sales) => {
-    console.log(sales.size);
     sales.forEach((sale) =>
       saleCallback({
         id: sale.id,
@@ -25,4 +25,38 @@ const getSalesFromFirestore = async (saleCallback) => {
   });
 };
 
-export { getSalesFromFirestore };
+const getSaleItems = async (saleID, itemCallback) => {
+  try {
+    const email = auth.currentUser?.email;
+    if (!email) return;
+
+    const snapshot = await db
+      .collection("users")
+      .doc(email)
+      .collection("sales")
+      .doc(saleID)
+      .collection("items")
+      .get();
+    snapshot.forEach(async (item) => {
+      try {
+        const imageRef = ref(storage, `${email}/items/${item.id}`);
+        const itemImage = await getDownloadURL(imageRef);
+        getSaleItem(item.id, itemImage, itemCallback);
+      } catch (imageError) {
+        getSaleItem(item.id, null, itemCallback);
+      }
+    });
+  } catch (error) {
+    // Handle general error
+    console.error("Error getting items:", error);
+  }
+};
+
+const getSaleItem = async (itemID, itemImg, itemCallback) => {
+  itemCallback({
+    id: itemID,
+    image: itemImg,
+  });
+};
+
+export { getSalesFromFirestore, getSaleItems };

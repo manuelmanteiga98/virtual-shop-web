@@ -124,14 +124,16 @@ const InventoryListBar = () => {
   );
 
   return (
-    <div className="container mw-75">
-      <button
-        className="btn btn-success w-50"
-        data-bs-toggle="modal"
-        data-bs-target="#addItemModal"
-      >
-        Add Item
-      </button>
+    <div className="container d-flex mw-100">
+      <div className="w-50 bg-primary fs-3 d-flex align-items-center justify-content-center">
+        <button
+          className="items-bar-button"
+          data-bs-toggle="modal"
+          data-bs-target="#addItemModal"
+        >
+          Add Item
+        </button>
+      </div>
       <div
         class="modal fade"
         id="addItemModal"
@@ -173,9 +175,12 @@ const InventoryListBar = () => {
           </div>
         </div>
       </div>
-      <Link to="/items/categories">
-        <button className="btn btn-warning w-50">Manage Categories</button>´
-      </Link>
+
+      <div className="w-50 bg-secondary fs-3 d-flex align-items-center justify-content-center">
+        <Link className="text-dark" to="/items/categories">
+          Manage Categories
+        </Link>
+      </div>
     </div>
   );
 };
