@@ -17,7 +17,7 @@ import {
 
 let wasExecuted = false;
 
-const getItemsFromFirestore = async (itemCallback, categoryCallback) => {
+const getItems = async (itemCallback, categoryCallback) => {
   if (wasExecuted) return;
   wasExecuted = true;
 
@@ -235,7 +235,7 @@ const getCategories = async (categoryCallback) => {
   }
 };
 export {
-  getItemsFromFirestore,
+  getItems,
   addItem,
   deleteItem,
   addCategory,

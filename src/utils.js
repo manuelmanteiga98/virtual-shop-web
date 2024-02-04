@@ -7,7 +7,7 @@ const compareDates = (a, b) => {
   const dateB = parse(b.date, "HH:mm:ss dd-MM-yyyy", new Date());
 
   // Date comparison
-  return dateA - dateB;
+      return dateA - dateB;
 };
 
 export { compareDates };

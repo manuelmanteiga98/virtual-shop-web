@@ -1,23 +1,25 @@
-import React from "react";
+import {React, useEffect} from "react";
 import Listitem from "./ListItem";
 import { useDispatch, useSelector } from "react-redux";
-import { isEmptyList, selectFilteredItems } from "../selectors";
-import { getItemsFromFirestore } from "../../backend/itemsBackend";
+import { selectFilteredItems } from "../selectors";
+import { getItems as getItemsBackend } from "../../backend/itemsBackend";
 import { addCategory, addItem } from "../../../store/itemsSlice";
 import InventoryListBar from "./InventoryListBar";
 
 function InventoryList() {
-  const empty = useSelector(isEmptyList);
   const filteredList = useSelector(selectFilteredItems);
   const dispatch = useDispatch();
 
-  if (empty) {
-    getItemsFromFirestore(
-      (item) => dispatch(addItem(item)),
-      (category) => dispatch(addCategory(category))
-    );
-  }
-  if (empty || filteredList.length === 0) {
+  useEffect(
+    () =>{
+      getItemsBackend(
+        (item) => dispatch(addItem(item)),
+        (category) => dispatch(addCategory(category))
+      );
+    }, []
+  );
+
+  if ( filteredList.length === 0) {
     return (
       <div className="h-100">
         <InventoryListBar />
