@@ -2,6 +2,7 @@ import React from "react";
 import { deleteCategory as deleteCategoryBackend } from "../../backend/itemsBackend";
 import { deleteCategory } from "../../../store/itemsSlice";
 import { useDispatch } from "react-redux";
+import styles from "../inventory.module.css";
 
 const DeleteCategoryModal = (props) => {
   const { id, category } = props;
@@ -25,28 +26,28 @@ const DeleteCategoryModal = (props) => {
   return (
     <div>
       <div
-        className="cm-category-remove"
+        className={styles.cmCategoryRemove}
         data-bs-toggle="modal"
         data-bs-target={`#deleteModal${id}`}
       >
         X
       </div>
       <div
-        class="modal fade"
+        className="modal fade"
         id={`deleteModal${id}`}
         tabindex="-1"
         aria-labelledby={`deleteModal${id}`}
         aria-hidden="true"
       >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">
                 {category} will be deleted
               </h5>
               <button
                 type="button"
-                class="btn-close"
+                className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
@@ -55,7 +56,7 @@ const DeleteCategoryModal = (props) => {
             <div class="modal-footer">
               <button
                 type="button"
-                class="btn btn-danger"
+                className="btn btn-danger"
                 data-bs-dismiss="modal"
                 onClick={handleSubmit}
               >
@@ -63,7 +64,7 @@ const DeleteCategoryModal = (props) => {
               </button>
               <button
                 type="button"
-                class="btn btn-primary"
+                className="btn btn-primary"
                 data-bs-dismiss="modal"
               >
                 Discard

@@ -4,6 +4,7 @@ import { logout } from "../../../store/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { isLogged, getCategories } from "../selectors";
 import { toFiltered, toFilteredByCategory } from "../../../store/itemsSlice";
+import styles from "../app.module.css";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -35,14 +36,16 @@ const Header = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light header-navbar">
+    <nav
+      className={`navbar navbar-expand-lg navbar-light bg-light ${styles.headerNavbar}`}
+    >
       <div className="container mw-100">
         <a className="navbar-brand" href="/">
           Market App
         </a>
 
         {logged && currentPath === "/items" && (
-          <div className="input-group rounded header-search-items">
+          <div className={`input-group rounded ${styles.headerSearchItems}`}>
             <input
               type="search"
               className="form-control rounded"
@@ -60,7 +63,7 @@ const Header = () => {
 
         {logged && currentPath === "/items" && categories.length > 0 && (
           <select
-            className="form-select header-category-selector"
+            className={`form-select ${styles.headerCategorySelector}`}
             name="categories"
             id="categories"
             onChange={onCategoryChangeHandler}
@@ -108,7 +111,7 @@ const Header = () => {
               <li className="nav-item">
                 <Link to="/" onClick={onLogoutClick}>
                   <img
-                    className="nav-link header-logout"
+                    className={`nav-link ${styles.headerLogout}`}
                     src="https://cdn.pixabay.com/photo/2014/03/25/16/59/external-link-297789_960_720.png"
                   />
                 </Link>

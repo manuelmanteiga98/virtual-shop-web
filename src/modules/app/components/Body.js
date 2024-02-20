@@ -9,7 +9,7 @@ import { InventoryList, ItemDetails } from "../../inventory";
 import { SalesList } from "../../sales";
 import { OrdersList } from "../../orders";
 import CategoryManager from "../../inventory/components/CategoryManager";
-import SaleDetails from "../../sales/components/SaleDetails";
+import Sale from "../../sales/components/Sale";
 
 const Body = () => {
   const logged = useSelector(isLogged);
@@ -20,7 +20,7 @@ const Body = () => {
       <Route path="/register" element={<Register />} />
       {logged && <Route path="/items" element={<InventoryList />} />}
       {logged && <Route path="/sales" element={<SalesList />} />}
-      {logged && <Route path="/sales/:saleID" element={<SaleDetails />} />}
+      {logged && <Route path="/sales/:saleID" element={<Sale />} />}
       {logged && <Route path="/orders" element={<OrdersList />} />}
       {logged && <Route path="/items/:itemID" element={<ItemDetails />} />}
       {logged && (

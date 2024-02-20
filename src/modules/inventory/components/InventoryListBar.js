@@ -4,6 +4,7 @@ import { getCategories } from "../selectors";
 import { addItem as addItemBackend } from "../../backend/itemsBackend";
 import { addItem } from "../../../store/itemsSlice";
 import { Link } from "react-router-dom";
+import styles from "../inventory.module.css";
 
 const InventoryListBar = () => {
   const [itemID, setItemID] = useState(null);
@@ -127,7 +128,7 @@ const InventoryListBar = () => {
     <div className="container d-flex mw-100">
       <div className="w-50 bg-primary fs-3 d-flex align-items-center justify-content-center">
         <button
-          className="items-bar-button"
+          className={styles.itemsBarButton}
           data-bs-toggle="modal"
           data-bs-target="#addItemModal"
         >
@@ -177,7 +178,7 @@ const InventoryListBar = () => {
       </div>
 
       <div className="w-50 bg-secondary fs-3 d-flex align-items-center justify-content-center">
-        <Link className="text-dark" to="/items/categories">
+        <Link className={styles.itemsBarButton} to="/items/categories">
           Manage Categories
         </Link>
       </div>

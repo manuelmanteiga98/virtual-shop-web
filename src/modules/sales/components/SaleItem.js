@@ -1,9 +1,10 @@
 import React from "react";
+import styles from "../sales.module.css";
 
 const SaleItem = (props) => {
-  const { id, image } = props;
+  const { id, units, image } = props;
   return (
-    <div className="card sales-sale-item">
+    <div className={`card ${styles.item}`}>
       <img
         className="card-img-top"
         src={
@@ -12,9 +13,13 @@ const SaleItem = (props) => {
         }
       />
       <div>
-        <div className="d-flex align-items-center">
-          <h2>Item's id: </h2>
-          <div className="item-details-field">{id} </div>
+        <div className={`d-flex align-items-center ${styles.itemInfo}`}>
+          <h5>Item's id:</h5>
+          <h5 className={styles.itemID}>{id}</h5>
+        </div>
+        <div className={`d-flex align-items-center ${styles.itemInfo}`}>
+          <h5>Units:</h5>
+          <h5 className={styles.itemID}>{units}</h5>
         </div>
       </div>
     </div>

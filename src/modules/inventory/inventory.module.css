@@ -1,0 +1,79 @@
+/* Inventory CSS */
+.card {
+  display: flex;
+  width: 20rem;
+  margin: 0.2rem;
+}
+
+.cardImgTop {
+  height: 15rem;
+  width: 20rem;
+}
+
+.cmCategories {
+  margin-top: 5rem;
+}
+.cmCategoryName {
+  margin-bottom: 1em;
+  font: 3em sans-serif;
+}
+
+.cmCategoryRemove {
+  cursor: pointer;
+  color: red;
+  font: 3em sans-serif;
+  margin-right: 1.5rem;
+  text-shadow: 0.03em 0.03em black;
+}
+
+.cmAddCategory {
+  height: 4em;
+  width: 4em;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+}
+
+.itemsBarButton {
+  all: unset;
+  color: white;
+  cursor: pointer;
+}
+
+.itemBtns {
+  justify-content: space-between;
+}
+
+.itemlist {
+  margin-top: 20px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.itemDetailsAll {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.itemDetailsPhoto {
+  height: 15em;
+  width: 15em;
+}
+.itemDetailsMain {
+  width: 30em;
+  height: auto;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.itemDetailsField {
+  margin-left: auto;
+  margin-right: 1em;
+}
+
+.itemDetailsBack {
+  margin-top: 1em;
+}

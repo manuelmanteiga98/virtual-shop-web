@@ -41,9 +41,9 @@ const getSaleItems = async (saleID, itemCallback) => {
       try {
         const imageRef = ref(storage, `${email}/items/${item.id}`);
         const itemImage = await getDownloadURL(imageRef);
-        getSaleItem(item.id, itemImage, itemCallback);
+        saveSaleItem(item.id, item.get("units"), itemImage, itemCallback);
       } catch (imageError) {
-        getSaleItem(item.id, null, itemCallback);
+        saveSaleItem(item.id, null, itemCallback);
       }
     });
   } catch (error) {
@@ -52,9 +52,10 @@ const getSaleItems = async (saleID, itemCallback) => {
   }
 };
 
-const getSaleItem = async (itemID, itemImg, itemCallback) => {
+const saveSaleItem = async (itemID, units, itemImg, itemCallback) => {
   itemCallback({
     id: itemID,
+    units: units,
     image: itemImg,
   });
 };

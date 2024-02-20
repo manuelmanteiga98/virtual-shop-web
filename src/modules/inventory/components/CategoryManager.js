@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { getCategories } from "../selectors";
 import DeleteCategoryModal from "./DeleteCategoryModal";
 import AddCategoryModal from "./AddCategoryModal";
+import styles from "../inventory.module.css";
 
 const CategoryManager = () => {
   var categories = useSelector(getCategories);
@@ -10,7 +11,7 @@ const CategoryManager = () => {
   return (
     <div className="d-flex align-items-center justify-content-center vw-100">
       <AddCategoryModal />
-      <div className="cm-categories">
+      <div className={styles.cmCategories}>
         {categories.map((category) => {
           return (
             <div className="d-flex">
@@ -18,7 +19,7 @@ const CategoryManager = () => {
                 id={categories.indexOf(category)}
                 category={category}
               />
-              <h1 className="cm-category-name">{category}</h1>
+              <h1 className={styles.cmCategoryName}>{category}</h1>
             </div>
           );
         })}

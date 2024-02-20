@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logged } from "../../../store/authSlice";
 import { register } from "../../backend/userFirebase";
+import styles from "../users.module.css";
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -48,7 +49,7 @@ const Register = () => {
 
   return (
     <div className="container h-100 d-flex justify-content-center align-items-center">
-      <form className="row g-3 custom-form" onSubmit={handleSubmit}>
+      <form className={`row g-3 ${styles.customForm}`} onSubmit={handleSubmit}>
         <div className={`mb-3 ${emailError ? "has-error" : ""}`}>
           <label for="email" className="form-label">
             Email address

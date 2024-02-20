@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { addCategory as addCategoryBackend } from "../../backend/itemsBackend";
 import { useDispatch } from "react-redux";
 import { addCategory } from "../../../store/itemsSlice";
+import styles from "../inventory.module.css";
 
 const AddCategoryModal = () => {
   const [categoryName, setCategoryName] = useState("");
@@ -28,7 +29,7 @@ const AddCategoryModal = () => {
   return (
     <div>
       <button
-        className="btn btn-primary position-absolute bottom-0 end-0 cm-add-category"
+        className={`btn btn-primary position-absolute bottom-0 end-0 ${styles.cmAddCategory}`}
         data-bs-toggle="modal"
         data-bs-target={`#addCategoryModal`}
       >

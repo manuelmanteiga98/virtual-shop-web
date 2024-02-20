@@ -4,6 +4,7 @@ import { getSales } from "../selectors";
 import { getSalesFromFirestore } from "../../backend/salesBackend";
 import { addSale } from "../../../store/salesSlice";
 import { Link } from "react-router-dom";
+import styles from "../sales.module.css";
 
 const SalesList = () => {
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ const SalesList = () => {
       <div>
         {salesList.map((sale) => (
           <Link to={`/sales/${sale.id}`}>
-            <div className="sales-sale-selection" key={sale.id}>
+            <div className={styles.selection} key={sale.id}>
               {sale.date}
             </div>
           </Link>

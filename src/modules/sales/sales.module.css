@@ -1,0 +1,30 @@
+/* Sales CSS */
+
+.selection {
+  font-size: 2rem;
+}
+
+.item {
+  width: 18rem;
+  margin: 1em;
+  border: solid 0.01em black;
+}
+
+.itemID {
+  margin-left: auto;
+  margin-right: 1em;
+  margin-left: 1em;
+}
+
+.itemInfo {
+  margin-left: 1em;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 3rem;
+  background-color: #f0f8ff;
+}

@@ -1,0 +1,16 @@
+/* App CSS */
+.headerNavbar {
+  border-bottom: 2px solid gray;
+}
+
+.headerLogout {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.headerSearchItems {
+  width: 300rem;
+}
+
+.headerCategorySelector {
+  width: 80rem;
+}

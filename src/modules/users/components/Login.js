@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { logInWithEmailAndPassword } from "../../backend/userFirebase";
 import { logged } from "../../../store/authSlice";
 import { useDispatch } from "react-redux";
+import styles from "../users.module.css";
 
 function LoginForm() {
   let navigate = useNavigate();
@@ -20,7 +21,7 @@ function LoginForm() {
 
   return (
     <div className="container h-100 d-flex justify-content-center align-items-center">
-      <form className="row g-3 custom-form" onSubmit={handleSubmit}>
+      <form className={`row g-3 ${styles.customForm}`} onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="email" className="form-label">
             Email address
@@ -50,7 +51,7 @@ function LoginForm() {
         <div className="mb-3 d-flex justify-content-center align-items-center">
           <div>Don't you have an account?</div>
           <Link to="/register">
-            <h1 className="login-register-label">Register</h1>
+            <h1 className={styles.loginRegisterLabel}>Register</h1>
           </Link>
         </div>
       </form>

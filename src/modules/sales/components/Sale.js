@@ -5,8 +5,9 @@ import { getCurrentSale } from "../selectors";
 import { getSaleItems } from "../../backend/salesBackend";
 import { addItemToSale, initialize } from "../../../store/salesSlice";
 import { SaleItem } from "./SaleItem";
+import styles from "../sales.module.css";
 
-const SaleDetails = () => {
+const Sale = () => {
   const { saleID } = useParams();
   const currentSale = useSelector(getCurrentSale);
   const dispatch = useDispatch();
@@ -24,12 +25,19 @@ const SaleDetails = () => {
     );
 
   return (
-    <div className="d-flex">
-      {currentSale.map((item) => {
-        return <SaleItem id={item.id} image={item.image} />;
-      })}
+    <div>
+      <div className={styles.header}>
+        <button className="btn btn-primary">Add Item</button>
+      </div>
+      <div className="d-flex">
+        {currentSale.map((item) => {
+          return (
+            <SaleItem id={item.id} units={item.units} image={item.image} />
+          );
+        })}
+      </div>
     </div>
   );
 };
 
-export default SaleDetails;
+export default Sale;
